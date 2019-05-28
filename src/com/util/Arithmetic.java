@@ -8,7 +8,23 @@ import java.util.stream.Stream;
  * @author wentong
  * @date 2019-05-28
  */
-public class ArithmeticUtil {
+public abstract class Arithmetic {
+
+    private Comparable[] array;
+
+    public abstract void sort(Comparable[] array);
+
+    public void testSort(int size) throws IllegalAccessException {
+        array = getRandomIntegerArray(size);
+        print(array);
+        sort(array);
+        print(array);
+        isSort(array);
+    }
+
+    public void testSort() throws IllegalAccessException {
+        testSort(16);
+    }
 
     public static void print(Comparable[] array) {
         for (int i = 0; i < array.length; i++) {
@@ -66,5 +82,14 @@ public class ArithmeticUtil {
                 }
             }
         }
+    }
+
+    public static boolean less(Comparable[] arrays, int x, int y){
+        checkSubscriptIsLegal(arrays, x);
+        checkSubscriptIsLegal(arrays, y);
+        if (arrays[x].compareTo(arrays[y]) < 0){
+            return true;
+        }
+        return false;
     }
 }

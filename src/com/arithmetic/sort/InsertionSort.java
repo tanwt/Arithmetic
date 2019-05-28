@@ -5,29 +5,28 @@ package com.arithmetic.sort;
  * 插入排序
  */
 
-import com.util.ArithmeticUtil;
+import com.util.Arithmetic;
 
 /**
  * @author wentong
  * @date 2019-05-28
  */
-public class InsertionSort {
+public class InsertionSort extends Arithmetic {
 
-    public static void sort(Comparable[] array) {
-        if (ArithmeticUtil.isEmpty(array)) {
+    @Override
+    public void sort(Comparable[] array) {
+        if (isEmpty(array)) {
             return;
         }
         int length = array.length;
         for (int i = 1; i < length; i++) {
-            for (int j = i; j > 0 && array[j].compareTo(array[j - 1]) < 0; j--){
-                ArithmeticUtil.exchangeElement(array, j, j-1);
+            for (int j = i; j > 0 && less(array, j, j - 1); j--) {
+                exchangeElement(array, j, j - 1);
             }
         }
     }
 
     public static void main(String[] args) throws IllegalAccessException {
-        Integer[] randomIntegerArray = ArithmeticUtil.getRandomIntegerArray(10);
-        sort(randomIntegerArray);
-        ArithmeticUtil.isSort(randomIntegerArray);
+        new InsertionSort().testSort();
     }
 }
