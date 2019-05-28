@@ -3,6 +3,9 @@ package com.arithmetic.sort;
 import com.util.ArithmeticUtil;
 
 import java.util.Random;
+/**
+ * 选择排序
+ */
 
 /**
  * @author wentong
@@ -11,10 +14,11 @@ import java.util.Random;
 public class SelectionSort {
 
     /**
-     * . 参数校验
+     * 选择排序的主要思想是：
+     * 1. 每次遍历找出最大/小 的那个值，与当前下标进行交换
      */
     public static void sort(Comparable[] array) {
-        if (ArithmeticUtil.isEmpty(array)){
+        if (ArithmeticUtil.isEmpty(array)) {
             return;
         }
         int length = array.length;
@@ -29,10 +33,9 @@ public class SelectionSort {
         }
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IllegalAccessException {
         Integer[] testSelectSort = ArithmeticUtil.getRandomIntegerArray(10);
-        ArithmeticUtil.print(testSelectSort);
         sort(testSelectSort);
-        ArithmeticUtil.print(testSelectSort);
+        ArithmeticUtil.isSort(testSelectSort);
     }
 }
