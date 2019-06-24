@@ -92,4 +92,11 @@ public abstract class Arithmetic {
         }
         return false;
     }
+
+    public static boolean less(Comparable x, Comparable y){
+        if (x.compareTo(y) < 0){
+            return true;
+        }
+        return false;
+    }
 }
